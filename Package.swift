@@ -27,7 +27,7 @@ let package = Package(
             path: "Sources/z/contrib/untgz",
             sources: [
                 "untgz.c"
-            ],
+            ]
         ),
         .target(
             name: "z",
