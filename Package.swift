@@ -12,11 +12,11 @@ let package = Package(
     ],
     products: [
         .executable(name: "untgz",
-                    targets: ["untgz"]),
+         -           targets: ["untgz"]),
         .library(name: "z",
                  type: .dynamic,
                  targets: ["z"]
-        ),
+        )
     ],
     targets: [
         .executableTarget(
@@ -85,7 +85,7 @@ let package = Package(
             cSettings: [
                 .define("HAVE_UNISTD_H"),
                 .headerSearchPath("include")
-            ],
-        ),
-    ],
+            ]
+        )
+    ]
 )
