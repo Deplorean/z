@@ -8,25 +8,25 @@ let package = Package(
     platforms: [
         .macOS(.v15),
         .visionOS(.v2),
-        .iOS(.v15),
+        .iOS(.v15)
     ],
     products: [
         .executable(name: "untgz",
                     targets: ["untgz"]),
         .library(name: "z",
                  type: .dynamic,
-                 targets: ["z"],
+                 targets: ["z"]
         ),
     ],
     targets: [
         .executableTarget(
             name: "untgz",
             dependencies: [
-                .target(name: "z"),
+                .target(name: "z")
             ],
             path: "Sources/z/contrib/untgz",
             sources: [
-                "untgz.c",
+                "untgz.c"
             ],
         ),
         .target(
@@ -43,7 +43,7 @@ let package = Package(
                 "qnx",
                 "test",
                 "watcom",
-                "win32",
+                "win32"
             ],
             sources: [
                 // zlib
@@ -76,15 +76,15 @@ let package = Package(
                 "trees.c",
                 "uncompr.c",
                 "zutil.c",
-      
+
                 // contrib
                 // iostream3
-                "contrib/iostream3/zfstream.h",
+                "contrib/iostream3/zfstream.h"
                 // "Sources/Z",
             ],
             cSettings: [
                 .define("HAVE_UNISTD_H"),
-                .headerSearchPath("include"),
+                .headerSearchPath("include")
             ],
         ),
     ],
