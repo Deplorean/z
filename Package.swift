@@ -12,7 +12,7 @@ let package = Package(
     ],
     products: [
         .executable(name: "untgz",
-         -           targets: ["untgz"]),
+                    targets: ["untgz"]),
         .library(name: "z",
                  type: .dynamic,
                  targets: ["z"]
