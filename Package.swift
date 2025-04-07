@@ -14,7 +14,6 @@ let package = Package(
         .executable(name: "untgz",
                     targets: ["untgz"]),
         .library(name: "z",
-                 type: .dynamic,
                  targets: ["z"]
         )
     ],
