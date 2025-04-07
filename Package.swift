@@ -48,17 +48,17 @@ let package = Package(
             sources: [
                 // zlib
                 // headers *.h
-                "crc32.h",
-                "deflate.h",
-                "gzguts.h",
-                "inffast.h",
-                "inffixed.h",
-                "inflate.h",
-                "inftrees.h",
-                "trees.h",
-                "zconf.h",
-                "zlib.h",
-                "zutil.h",
+//                "crc32.h",
+//                "deflate.h",
+//                "gzguts.h",
+//                "inffast.h",
+//                "inffixed.h",
+//                "inflate.h",
+//                "inftrees.h",
+//                "trees.h",
+//                "zconf.h",
+//                "zlib.h",
+//                "zutil.h",
 
                 // sources *.c
                 "adler32.c",
@@ -84,6 +84,8 @@ let package = Package(
             ],
             cSettings: [
                 .define("HAVE_UNISTD_H"),
+                .define("_LARGEFILE64_SOURCE"),
+                .define("HAVE_HIDDEN"),
                 .headerSearchPath("include")
             ]
         )
