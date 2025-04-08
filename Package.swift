@@ -13,11 +13,19 @@ let package = Package(
     products: [
         .executable(name: "untgz",
                     targets: ["untgz"]),
+        .executable(name: "z_tests",
+                    targets: ["z_tests", "z"]),
         .library(name: "z",
                  targets: ["z"]
         )
     ],
     targets: [
+        .executableTarget(
+            name: "z_tests",
+            dependencies: [
+                .target(name: "z")
+            ]
+        ),
         .executableTarget(
             name: "untgz",
             dependencies: [
@@ -30,35 +38,7 @@ let package = Package(
         ),
         .target(
             name: "z",
-            exclude: [
-                "amiga",
-                "doc",
-                "contrib",
-                "examples",
-                "msdos",
-                "nintendods",
-                "old",
-                "os400",
-                "qnx",
-                "test",
-                "watcom",
-                "win32"
-            ],
             sources: [
-                // zlib
-                // headers *.h
-//                "crc32.h",
-//                "deflate.h",
-//                "gzguts.h",
-//                "inffast.h",
-//                "inffixed.h",
-//                "inflate.h",
-//                "inftrees.h",
-//                "trees.h",
-//                "zconf.h",
-//                "zlib.h",
-//                "zutil.h",
-
                 // sources *.c
                 "adler32.c",
                 "compress.c",
@@ -74,12 +54,7 @@ let package = Package(
                 "inftrees.c",
                 "trees.c",
                 "uncompr.c",
-                "zutil.c",
-
-                // contrib
-                // iostream3
-                "contrib/iostream3/zfstream.h"
-                // "Sources/Z",
+                "zutil.c"
             ],
             cSettings: [
                 .define("HAVE_UNISTD_H"),

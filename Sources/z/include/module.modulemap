@@ -1,7 +1,7 @@
 module z {
     module zlib {
-        header "zconf.h"
-        header "zlib.h"
+        header "../zconf.h"
+        header "../zlib.h"
     }
     export *
 }
