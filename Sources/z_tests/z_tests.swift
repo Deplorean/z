@@ -5,13 +5,23 @@
 //  Created by Charles Gardner on 4/8/25.
 //
 
-import zlib
+import Testing
 
-@main
+@testable import z
+@testable import z.zconf
+
 struct z_tests {
-    static func main() {
+    @Test("Assert module loads.")
+    func assertModuleLoads() async throws {
         let version = String(cString: zlibVersion())
 
-        print ("zlib v\(version)")
+        assert(version == "1.3.1")
+    }
+
+    @Test("Assert Maximum value for memLevel in deflateInit2")
+    func assertMaxMemoryLevel() async throws {
+        let maxMemoryLevel = MAX_MEM_LEVEL
+
+        assert(maxMemoryLevel == 9)
     }
 }
