@@ -13,14 +13,12 @@ let package = Package(
     products: [
         .executable(name: "untgz",
                     targets: ["untgz"]),
-        .executable(name: "z_tests",
-                    targets: ["z_tests", "z"]),
         .library(name: "z",
                  targets: ["z"]
         )
     ],
     targets: [
-        .executableTarget(
+        .testTarget(
             name: "z_tests",
             dependencies: [
                 .target(name: "z")
@@ -56,12 +54,22 @@ let package = Package(
                 "uncompr.c",
                 "zutil.c"
             ],
+            publicHeadersPath: "include",
             cSettings: [
+                .define("HAVE_HIDDEN"),
+                .define("MAX_WBITS", to: "14"),
+                .define("MAX_MEM_LEVEL", to: "7"),
                 .define("HAVE_UNISTD_H"),
                 .define("_LARGEFILE64_SOURCE"),
-                .define("HAVE_HIDDEN"),
-                .headerSearchPath("include")
+                .define("ZLIB_DEBUG", to: "", .when(configuration: .debug)),
+                .unsafeFlags([
+                    "-O3",
+                    "-m64"
+                ])
             ]
         )
+    ],
+    swiftLanguageModes: [
+        .v6
     ]
 )
